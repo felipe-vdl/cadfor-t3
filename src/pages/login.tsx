@@ -40,7 +40,7 @@ const LoginPage = () => {
       });
 
       if (res?.ok) {
-        Router.push("/");
+        Router.push("/cadastros");
         setIsLoading(false);
       } else {
         setNotification({
@@ -134,7 +134,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     return {
       redirect: {
         permanent: false,
-        destination: "/",
+        destination: "/cadastros",
       },
       props: {},
     };
