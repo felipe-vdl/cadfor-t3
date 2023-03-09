@@ -37,6 +37,57 @@ export default function Sidebar() {
             </svg>
           </button>
         </li>
+        <Dropdown
+          sidebarIsCollapsed={sidebarIsCollapsed}
+          section={{
+            id: "cadastros",
+            title: "Cadastros",
+            icon: (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8.188 10H7V6.5h1.188a1.75 1.75 0 1 1 0 3.5z" />
+                <path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zM7 5.5a1 1 0 0 0-1 1V13a.5.5 0 0 0 1 0v-2h1.188a2.75 2.75 0 0 0 0-5.5H7z" />
+              </svg>
+            ),
+          }}
+          links={[
+            {
+              title: "Novo",
+              href: "/cadastros/new",
+              icon: (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z" />
+                </svg>
+              ),
+            },
+            {
+              title: "Lista",
+              href: "/cadastros",
+              icon: (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z" />
+                </svg>
+              ),
+            },
+          ]}
+        />
         {userData &&
           (userData.role === "ADMIN" || userData.role === "SUPERADMIN") && (
             <li>
