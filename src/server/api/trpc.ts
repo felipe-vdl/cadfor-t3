@@ -56,19 +56,38 @@ const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
 export const protectedProcedure = t.procedure.use(enforceUserIsAuthed);
 
 // Admin Procedure
-const enforceUserIsAdmin = t.middleware(({ctx, next}) => {
-  if (ctx.session?.user.role === "ADMIN" || ctx.session?.user.role === "SUPERADMIN") {
-    return next();
+const enforceUserIsAdmin = t.middleware(({ ctx, next }) => {
+  if (
+    ctx.session?.user.role === "ADMIN" ||
+    ctx.session?.user.role === "SUPERADMIN"
+  ) {
+    if (ctx.session && ctx.session.user) {
+      return next({
+        ctx: {
+          // infers the `session` as non-nullable
+          session: { ...ctx.session, user: ctx.session.user },
+        },
+      });
+    }
   }
   throw new TRPCError({ code: "UNAUTHORIZED" });
 });
-export const adminProcedure = t.procedure.use(enforceUserIsAuthed).use(enforceUserIsAdmin);
+export const adminProcedure = t.procedure
+  .use(enforceUserIsAuthed)
+  .use(enforceUserIsAdmin);
 
 // Super-Admin Procedure
-const enforceUserIsSuperAdmin = t.middleware(({ctx, next}) => {
+const enforceUserIsSuperAdmin = t.middleware(({ ctx, next }) => {
   if (ctx.session?.user.role === "SUPERADMIN") {
-    return next();
+    return next({
+      ctx: {
+        // infers the `session` as non-nullable
+        session: { ...ctx.session, user: ctx.session.user },
+      },
+    });
   }
   throw new TRPCError({ code: "UNAUTHORIZED" });
 });
-export const superAdminProcedure = t.procedure.use(enforceUserIsAuthed).use(enforceUserIsSuperAdmin);
+export const superAdminProcedure = t.procedure
+  .use(enforceUserIsAuthed)
+  .use(enforceUserIsSuperAdmin);

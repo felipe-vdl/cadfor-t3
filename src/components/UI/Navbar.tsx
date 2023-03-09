@@ -23,6 +23,7 @@ export default function Navbar() {
         }
       }
     },
+    enabled: status === "authenticated"
   });
 
   return (

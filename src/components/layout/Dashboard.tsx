@@ -17,6 +17,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <div className="bg-light-900 dark:bg-dark-900 flex min-h-screen flex-col">
       <div id="notifications" />
+      <div id="modal" />
       <Navbar />
       <div className="w-screen overflow-auto flex flex-1 bg-light-900 text-light-50 dark:bg-dark-900 dark:text-dark-50">
         <Sidebar />

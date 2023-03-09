@@ -6,7 +6,6 @@ import { AppNotification, Message } from "@/types/interfaces";
 import { GetServerSideProps } from "next";
 
 import Head from "next/head";
-import { useMutation } from "@tanstack/react-query";
 
 interface ChangePasswordForm {
   currentPassword: string;
