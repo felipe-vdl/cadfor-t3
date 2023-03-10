@@ -52,25 +52,25 @@ export default function Table<T>({
       stringDate: (rowA, rowB, columnId: string) => {
         const valueA = rowA.getValue(columnId) as string;
         const valueB = rowB.getValue(columnId) as string;
-
         const [dateA, timeA] = valueA.replace(",", "").split(" ");
+
         const a = new Date(
-          +dateA.split("/")[2],
-          +dateA.split("/")[1] - 1,
-          +dateA.split("/")[0],
-          +timeA.split(":")[0],
-          +timeA.split(":")[1],
-          +timeA.split(":")[2]
+          +dateA?.split("/")[2]!,
+          +dateA?.split("/")[1]! - 1,
+          +dateA?.split("/")[0]!,
+          +timeA?.split(":")[0]!,
+          +timeA?.split(":")[1]!,
+          +timeA?.split(":")[2]!
         );
 
         const [dateB, timeB] = valueB.replace(",", "").split(" ");
         const b = new Date(
-          +dateB.split("/")[2],
-          +dateB.split("/")[1] - 1,
-          +dateB.split("/")[0],
-          +timeB.split(":")[0],
-          +timeB.split(":")[1],
-          +timeB.split(":")[2]
+          +dateB?.split("/")[2]!,
+          +dateB?.split("/")[1]! - 1,
+          +dateB?.split("/")[0]!,
+          +timeB?.split(":")[0]!,
+          +timeB?.split(":")[1]!,
+          +timeB?.split(":")[2]!
         );
 
         if (a < b) return -1;

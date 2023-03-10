@@ -18,8 +18,8 @@ export const userRouter = createTRPCRouter({
     }
     throw new TRPCError({ code: "BAD_REQUEST" });
   }),
-  list: adminProcedure.query(({ ctx }) => {
-    return ctx.prisma.user.findMany();
+  list: adminProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.user.findMany();
   }),
   register: adminProcedure
     .input(

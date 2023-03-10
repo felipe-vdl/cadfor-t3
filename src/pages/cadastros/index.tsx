@@ -26,8 +26,8 @@ const RowActions = ({ cadastro }: RowActionsProps) => {
           fill="currentColor"
           viewBox="0 0 16 16"
         >
-          <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z" />
-          <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+          <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+          <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
         </svg>
       </Link>
     </div>
@@ -67,12 +67,23 @@ const CadastroIndex = () => {
       filterFn: "includesString",
       size: 101,
     }),
-    columnHelper.accessor("created_at", {
-      header: "Data do Cadastro",
-      cell: (info) => info.getValue(),
-      sortingFn: "alphanumeric",
-      filterFn: "includesString",
-    }),
+    columnHelper.accessor(
+      (row) =>
+        row.created_at.toLocaleDateString("pt-br", {
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+        }),
+      {
+        id: "created_at",
+        header: "Data",
+        cell: (info) => info.getValue().split(" ")[0]?.replace(",", ""),
+        sortingFn: "stringDate",
+        sortDescFirst: true,
+        filterFn: "includesString",
+        size: 107
+      },
+    ),
     columnHelper.display({
       id: "actions",
       header: "Ações",

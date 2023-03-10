@@ -19,8 +19,9 @@ model Cadastro {
     inscricao_estadual    String?
     produtos_servicos     String
     cep                   String
-    rua                   String
-    numero_rua            String
+    logradouro            String
+    numero_logradouro     String
+    complemento     String?
     bairro                String
     municipio             String
     estado                String
