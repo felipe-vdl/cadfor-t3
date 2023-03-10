@@ -72,6 +72,7 @@ export const cadastroRouter = createTRPCRouter({
           email: email.toUpperCase(),
           telefone: telefone.toUpperCase(),
           responsavel: responsavel.toUpperCase(),
+          updated_at: null
         },
       });
 
