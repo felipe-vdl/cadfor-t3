@@ -99,7 +99,7 @@ const CadastroIndex = () => {
   return (
     <>
       <Head>
-        <title>Lista de Protocolos</title>
+        <title>Lista de Cadastros</title>
         <meta
           name="description"
           content="Sistema Gerenciador de Projetos — Prefeitura de Mesquita."
