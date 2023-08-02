@@ -66,7 +66,7 @@ const LoginPage = () => {
       </Head>
       <div className="m-auto w-72 max-w-full rounded-[30px] shadow shadow-black/30 sm:w-[30rem] md:w-[36rem] lg:w-[42rem]">
         <div className="rounded-t-[29px] bg-dourado py-2 text-center text-2xl font-bold text-white drop-shadow-md">
-          SISTEMA BASE
+          CADFOR
         </div>
         <form
           className="flex flex-col gap-4 rounded-b-[29px] bg-light-500 p-5 dark:bg-dark-500"
