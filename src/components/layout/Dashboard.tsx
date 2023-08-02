@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import QueryNotification from "../UI/QueryNotification";
 
 interface DashboardLayoutProps {
-  children: any;
+  children: JSX.Element;
 }
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {

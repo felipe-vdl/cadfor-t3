@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+package-lock.json
+docker-compose.yml
+docker-compose.yaml
 
 # testing
 /coverage

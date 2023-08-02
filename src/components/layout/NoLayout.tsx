@@ -1,5 +1,5 @@
 interface NoLayoutProps {
-  children: any;
+  children: JSX.Element;
 }
 
 export default function NoLayout({children}: NoLayoutProps) {

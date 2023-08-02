@@ -2,7 +2,7 @@ import Navbar from "../UI/Navbar";
 import Footer from "../UI/Footer";
 
 interface RegularLayoutProps {
-  children: any;
+  children: JSX.Element;
 }
 
 export default function RegularLayout({ children }: RegularLayoutProps) {
